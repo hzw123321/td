@@ -13,7 +13,7 @@
          <el-table-column fixed="right" label="操作">
              <template v-slot="slot">
                  <a href="" @click.prevent="toDeleteHandler(slot.row.id )" class="el-icon-delete"></a>
-                 <a href="" @click.prevent="toUpdateHandler(slot.row.id)" class="el-icon-edit"></a>
+                 <a href="" @click.prevent="toUpdateHandler(slot.row)" class="el-icon-edit"></a>
              </template> 
          </el-table-column>
      </el-table>
@@ -89,7 +89,7 @@ export default {
         },
        toAddHandler(){
             this.form={
-                type:"customer"
+                type:"column"
             }
             this.visible = true;
         },
@@ -103,7 +103,7 @@ export default {
           type: 'warning'
         }).then(() => {
             //调用后台接口，完成删除操作
-             let url = "http://localhost:6677/column/deleteById?id="+id;
+             let url = "http://localhost:6677//category/deleteById?id="+id;
             request.get(url).then((response)=>{
                 //刷新数据
                 this.loadData();
@@ -116,7 +116,7 @@ export default {
             })
          
        },
-       toUpdateMandler(){
+       toUpdateHandler(row){
             //打开模态框
            this.visible=true;
            //在模态框的表单中显示当前行的信息
