@@ -126,7 +126,7 @@ export default {
                         "Content-Type":"application/x-www-form-urlencoded"
                     },
                      data: querystring.stringify(this.form)
-                }).then((Response)=>{
+                }).then((response)=>{
                     this.closeModalHandler();
                     this.loadData();
                     this.$message({type:"success",message:response.message})
@@ -142,14 +142,22 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'+id
-          });
-        })
-        },
+            //调用后台接口，完成删除操作
+             let url = "http://localhost:6677/product/deleteById?id="+id;
+            request.get(url).then((response)=>{
+                //刷新数据
+                this.loadData();
+                //提示结果
+                    this.$message({
+                type: 'success',
+                message: response.message
+            });
+            })
+            })
+         
+       },
         toUpdateHandler(){
-            this.title="修改产品信息";
+            this.form=row;
             this.visible=true;
 
         },
