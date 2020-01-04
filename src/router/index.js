@@ -83,13 +83,13 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/category',
+    path: '/column',
     component: Layout,
     children: [
       {
         path: 'List',
-        name: 'CategoryList',
-        component: () => import('@/pages/category/List'),
+        name: 'ColumnList',
+        component: () => import('@/pages/column/List'),
         meta: { title: '栏目管理', icon: 'user' }
       }
     ]
