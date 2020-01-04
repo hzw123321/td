@@ -68,7 +68,7 @@ export default {
         },
         submitHandler(){
             //通过request与后台进行交互，并要携带参数
-            let url="http://localhost:6677//customer/saveOrUpdate"
+            let url="http://localhost:6677/customer/saveOrUpdate"
             request({
                 url,
                 method:"POST",

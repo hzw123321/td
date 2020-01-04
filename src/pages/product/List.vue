@@ -14,8 +14,8 @@
          <el-table-column fixed="right" label="操作">
              <template v-slot="slot">
                 <a href="" @click.prevent="toDeleteHandler(slot.row.id)"  class="el-icon-delete"></a>
-                <a href="" @click.prevent="toUpdateHandler(slot.row.id)"  class="el-icon-edit"></a> 
-                <a href="" @click.prevent="toDetailsHandler(slot.row.id)"  class="el-icon-more"></a> 
+                <a href="" @click.prevent="toUpdateHandler(slot.row)"  class="el-icon-edit"></a> 
+                <a href="" @click.prevent="toDetailsHandler"  class="el-icon-more"></a> 
 
              </template> 
          </el-table-column>
@@ -68,6 +68,7 @@ import querystring from 'querystring'//系统库
 export default {
     data(){
         return {
+            
             options: [{
           value: '选项1',
           label: '黄金糕'
@@ -156,7 +157,7 @@ export default {
             })
          
        },
-        toUpdateHandler(){
+        toUpdateHandler(row){
             this.form=row;
             this.visible=true;
 
