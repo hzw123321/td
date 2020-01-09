@@ -14,6 +14,8 @@
              <template v-slot="slot">
                  <a href="" @click.prevent="toDeleteHandler(slot.row.id )" class="el-icon-delete"></a>
                  <a href="" @click.prevent="toUpdateHandler(slot.row)" class="el-icon-edit"></a>
+                  <a href="" @click.prevent="toDetailsHandler"  class="el-icon-more"></a> 
+
              </template> 
          </el-table-column>
      </el-table>
@@ -96,6 +98,10 @@ export default {
        closeModalHandler(){
            this.visible=false;
        } ,
+       toDetailsHandler(){
+            this.title="查看产品信息"
+            this.visible=true;
+        },
        toDeleteHandler(id){
              this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',

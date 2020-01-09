@@ -11,8 +11,7 @@
         <el-table-column prop="area" label="所在区"></el-table-column>
         <el-table-column prop="address" label="详细地址"></el-table-column>
         <el-table-column prop="telephone" label="联系方式"></el-table-column>
-        <el-table-column prop="customerId" label="客户编号"></el-table-column>
-        
+        <el-table-column prop="customerId" label="客户编号"></el-table-column>        
         <el-table-column label="操作">
         <template v-slot="slot">
             <a href="" @click.prevent="toDeleteHandler (slot.row.id )" class="el-icon-delete">删除</a>
